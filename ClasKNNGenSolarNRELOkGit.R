@@ -3,10 +3,12 @@ library(tidyverse)
 library(caret)
 library(class)
 if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(class)) install.packages("class")
 
 # 1️⃣ Obtención y lectura de datos
 # 1ra opción: Primera linea de codigo abajo como opción para cargar los datos desde el computador
-weather_data <- read.csv("C:/Users/UFPR/Downloads/weather_data/example_weather.csv", stringsAsFactors = FALSE)
+#weather_data <- read.csv("C:/Users/UFPR/Downloads/weather_data/example_weather.csv", stringsAsFactors = FALSE)
 
 ### 2da opción: lectura de los datos del Github
 #### Inicio codigo accesso a Github del Prof. Victor Neumann
@@ -80,6 +82,7 @@ print(conf_matrix)
 conf_df <- as.data.frame(conf_matrix$table)
 
 # Graficar la matriz de confusión
+ 
 library(ggplot2)
 ggplot(data = conf_df, aes(x = Reference, y = Prediction, fill = Freq)) +
   geom_tile() +
